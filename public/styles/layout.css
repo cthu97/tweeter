@@ -13,11 +13,27 @@ html {
 /*
  * Global layout stuff
  */
+head {
+  font-family: Source Sans Pro, sans-serif
+}
 
 body {
+  display:flex;
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: gainsboro;
   font-size: 24px;
+  font-family:Source Sans Pro, sans-serif; 
+  justify-content: center;
+}
+
+.main {
+  color:black;
+  background-color: gainsboro;
+  position:relative;
+  width: 90%;
+  top: 500px;
+  justify-content:center;
+  align-content: center;
 }
 
 /*

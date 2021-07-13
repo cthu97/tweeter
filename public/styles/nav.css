@@ -1,0 +1,32 @@
+
+#tweeter {
+  font-family: Bungee, sans-serif;
+  font-size:40px;
+  align-self: flex-end;
+}
+
+.topnav {
+  display:flex;
+  justify-content: space-between;
+  background-color: #4056A1;
+  padding: 1.5em;
+  color:#FFFF;
+  font-family:Source Sans Pro, sans-serif;
+  position:fixed;
+  height:120px;
+  width: 100%;
+  font-size: 20px;
+}
+
+.topnav div {
+  display:flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 1.5em;
+}
+
+
+

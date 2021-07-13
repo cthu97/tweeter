@@ -1,0 +1,17 @@
+header {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+  padding:300px;
+  z-index: -1;
+}
+
+header h2 {
+  position:relative;
+  bottom:30px;
+}
