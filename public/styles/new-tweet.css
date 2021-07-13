@@ -1,0 +1,38 @@
+form {
+  display:flex;
+  align-self: center;
+  border: none;
+  background:transparent;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}
+
+form textarea {
+  background-color: transparent;
+  color: black;
+  outline: none;
+  outline-style: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid #000;
+  height: 35px;
+  flex: 100%;
+  
+
+}
+
+button {
+  display:flex;
+  background-color: #4056A1;
+  color:whitesmoke;
+  font-family: Bungee;
+  border:none;
+  padding: 5px;
+  margin-top:10px;
+
+}
+
+form div {
+ margin-left: auto;
+}
