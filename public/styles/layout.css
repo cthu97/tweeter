@@ -20,15 +20,15 @@ head {
 body {
   display:flex;
   color: #545149;
-  background-color: gainsboro;
+  background-color: whitesmoke;
   font-size: 24px;
   font-family:Source Sans Pro, sans-serif; 
   justify-content: center;
 }
 
-.main {
+.container {
   color:black;
-  background-color: gainsboro;
+  background-color: whitesmoke;
   position:relative;
   width: 90%;
   top: 500px;

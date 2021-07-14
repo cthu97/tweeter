@@ -5,6 +5,7 @@ form {
   background:transparent;
   flex-wrap:wrap;
   justify-content: space-between;
+  padding:1.3em;
 }
 
 form textarea {
@@ -24,13 +25,13 @@ form textarea {
 
 button {
   display:flex;
+ font-size:16px;
   background-color: #4056A1;
   color:whitesmoke;
   font-family: Bungee;
   border:none;
   padding: 5px;
   margin-top:10px;
-
 }
 
 form div {
