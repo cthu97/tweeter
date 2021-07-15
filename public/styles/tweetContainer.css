@@ -6,18 +6,12 @@
   margin-bottom:1.5em;
   padding-left:1em;
   padding-right: 1em;
+
 }
 
 .tweets:hover{
   box-shadow:4px 4px #545149; 
 
-}
-
-.tweets-header {
-padding: 40px;
-display:flex;
-flex-direction: column;
-border-top: 4px solid #545149;
 }
 
 .tweets div {
