@@ -5,33 +5,11 @@
  */
 
 
-
-// Test / driver code (temporary). Eventually will get this from the server.
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}; 
 
 createTweetElement = function (tweet) {
   const text = $("<div>").text(tweet.content.text).html();
@@ -44,12 +22,12 @@ createTweetElement = function (tweet) {
   let $tweet = $(`<section class="tweets">
   <article>
     <div>
-      <img class="avatar" src="${avatar}">
-      <h3 class="name">${name}</h3>
-      <p class="username">${username}</p>
+      <img class="avatar" src="${escape(avatar)}">
+      <h3 class="name">${escape(name)}</h3>
+      <p class="username">${escape(username)}</p>
     </div>
     <p class="tweet-body">
-        ${text}
+        ${escape(text)}
       </p>
       <footer>
         <p class="footer-text">${timeago.format(time)}</p>
@@ -66,6 +44,9 @@ createTweetElement = function (tweet) {
 
 
 $(document).ready(() => {
+
+
+  
   const renderTweets = function (tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
