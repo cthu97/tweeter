@@ -19,6 +19,4 @@ $(document).ready(function () {
     }
     
   })
-/*   //clears and refocuses text box
-  $input.val('').focus(); */
 });

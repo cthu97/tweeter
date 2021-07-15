@@ -64,25 +64,36 @@ createTweetElement = function (tweet) {
   return $tweet
 }
 
-const renderTweets = function (tweets) {
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
-  $('.tweet-container').empty()
-  for (let tweet of tweets) {
-    const $tweet = createTweetElement(tweet)
-    $('.tweet-container').prepend($tweet)
-  }
-}
-
 
 $(document).ready(() => {
-  const $tweet = renderTweets(tweetData)
-  //$('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  const renderTweets = function (tweets) {
+    // loops through tweets
+    // calls createTweetElement for each tweet
+    // takes return value and appends it to the tweets container
+    $('.tweet-container').empty()
+    for (let tweet of tweets) {
+      const $tweet = createTweetElement(tweet)
+      $('.tweet-container').prepend($tweet)
+    }
+  }
+  
+  $('.new-tweet form').on('submit', (event) => {
+    event.preventDefault();
+    let $formData = $('.new-tweet form');
+    $.post('/tweets/', $formData.serialize(), (err, data) => {
+      fetchPosts();
+      //clears and refocuses text box
+      const $input = $('#tweet-text')
+      $($input).val('').focus();
+    })
+  });
+  
+  const fetchPosts = () => {
+    $.get('/tweets', (tweet) => {
+      renderTweets(tweet)
+    })
+  }
 
-})
+  fetchPosts()
 
-$("new-tweet form").on("submit", (event) => {
-  event.preventDefault();
-
-})
+});
