@@ -79,21 +79,31 @@ $(document).ready(() => {
   
   $('.new-tweet form').on('submit', (event) => {
     event.preventDefault();
-    let $formData = $('.new-tweet form');
-    $.post('/tweets/', $formData.serialize(), (err, data) => {
-      fetchPosts();
+    let inputLength = $('#tweet-text').val().length;
+
+    if (inputLength > 140){
+      alert('Tweet exceeded character limit.')
+      return;
+    } else if (!inputLength){
+      alert('Tweet is empty.')
+    }
+
+    let $tweet = $('.new-tweet form').serialize();
+    $.post('/tweets/', $tweet, (err, data) => {
+      tweetLoader();
       //clears and refocuses text box
       const $input = $('#tweet-text')
       $($input).val('').focus();
     })
+  
   });
   
-  const fetchPosts = () => {
+  const tweetLoader = () => {
     $.get('/tweets', (tweet) => {
       renderTweets(tweet)
     })
   }
 
-  fetchPosts()
+  tweetLoader()
 
 });
