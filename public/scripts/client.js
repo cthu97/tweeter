@@ -44,7 +44,7 @@ createTweetElement = function (tweet) {
 
 
 $(document).ready(() => {
-
+  $('.error').hide
 
   
   const renderTweets = function (tweets) {
@@ -58,15 +58,24 @@ $(document).ready(() => {
     }
   }
   
+const error = (errMsg) => {
+  $('.error').slideDown().text(errMsg)
+
+  $('#tweet-text').on('keypress', function() {
+    $('.error').slideUp()
+    $('textarea').focus()
+  })
+}
+
   $('.new-tweet form').on('submit', (event) => {
     event.preventDefault();
     let inputLength = $('#tweet-text').val().length;
 
     if (inputLength > 140){
-      alert('Tweet exceeded character limit.')
+      error('Tweet exceeded character limit.')
       return;
     } else if (!inputLength){
-      alert('Tweet is empty.')
+      error('Tweet is empty.')
     }
 
     let $tweet = $('.new-tweet form').serialize();
