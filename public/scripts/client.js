@@ -85,7 +85,6 @@ const error = (errMsg) => {
       const $input = $('#tweet-text')
       $($input).val('').focus();
     })
-  
   });
   
   const tweetLoader = () => {

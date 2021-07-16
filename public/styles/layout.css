@@ -26,6 +26,33 @@ body {
   justify-content: center;
 }
 
+
+
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+
+ /* Mobile Style */
+ @media only screen and (max-width: 768px){
+ header{
+ display: flex;
+ height: 400px;
+ width: 100%;
+ position: absolute;
+ justify-content: center;
+ align-items:center;
+ flex-direction: column;
+ padding:350px;
+ z-index: -1;
+ flex-shrink:3
+}
+
+header h2 {
+  position:relative;
+  bottom:30px;
+}
+
 .container {
   color:black;
   background-color: whitesmoke;
@@ -35,8 +62,27 @@ body {
   justify-content:center;
   align-content: center;
 }
+ }
 
+/* Desktop style */
+@media only screen and (min-width: 1024px){
+  header {
+    display: flex;
+    width:100%;
+    margin-top: 10em;
+    margin-left:6em;
+    margin-right:6em;
+    margin-bottom:auto;
+    flex-direction: column;
+    flex-shrink:10;
+    padding:2em;
+}
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+.container {
+  margin-right: 5em;
+  margin-top: 5em;
+  width: 60%
+
+}
+
+}
