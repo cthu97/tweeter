@@ -26,9 +26,6 @@ body {
   justify-content: center;
 }
 
-
-
-
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
@@ -45,7 +42,7 @@ body {
  flex-direction: column;
  padding:350px;
  z-index: -1;
- flex-shrink:3
+ flex-shrink:3;
 }
 
 header h2 {
@@ -81,7 +78,7 @@ header h2 {
 .container {
   margin-right: 5em;
   margin-top: 5em;
-  width: 60%
+  width: 60%;
 
 }
 

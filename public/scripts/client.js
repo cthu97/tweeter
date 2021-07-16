@@ -5,13 +5,14 @@
  */
 
 
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}; 
+};
 
-createTweetElement = function (tweet) {
+//tweet post skeleton
+createTweetElement = function(tweet) {
   const text = $("<div>").text(tweet.content.text).html();
   const name = $("<div>").text(tweet.user.name).html();
   const username = $("<div>").text(tweet.user.handle).html();
@@ -39,60 +40,64 @@ createTweetElement = function (tweet) {
     </article>
   </section>`
   )
-  return $tweet
-}
+  return $tweet;
+};
 
 
 $(document).ready(() => {
-  $('.error').hide
+  $('.error').hide;
 
-  
   const renderTweets = function (tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
     $('.tweet-container').empty()
     for (let tweet of tweets) {
-      const $tweet = createTweetElement(tweet)
-      $('.tweet-container').prepend($tweet)
+      const $tweet = createTweetElement(tweet);
+      $('.tweet-container').prepend($tweet);
     }
   }
-  
-const error = (errMsg) => {
-  $('.error').slideDown().text(errMsg)
 
-  $('#tweet-text').on('keypress', function() {
-    $('.error').slideUp()
-    $('textarea').focus()
-  })
-}
+  //hide error message until called
+  const error = (errMsg) => {
+    $('.error').slideDown().text(errMsg);
+    $('#tweet-text').on('keypress', function () {
+      $('.error').slideUp();
+      $('textarea').focus();
+    })
+  }
 
+  //user makes new tweet via form
   $('.new-tweet form').on('submit', (event) => {
     event.preventDefault();
     let inputLength = $('#tweet-text').val().length;
 
-    if (inputLength > 140){
-      error('Tweet exceeded character limit.')
+    //validates input
+    if (inputLength > 140) {
+      error('Tweet exceeded character limit.');
       return;
-    } else if (!inputLength){
-      error('Tweet is empty.')
+
+    } else if (!inputLength) {
+      error('Tweet is empty.');
     }
 
+    //post newly created tweet
     let $tweet = $('.new-tweet form').serialize();
     $.post('/tweets/', $tweet, (err, data) => {
       tweetLoader();
       //clears and refocuses text box
-      const $input = $('#tweet-text')
+      const $input = $('#tweet-text');
       $($input).val('').focus();
     })
   });
-  
+
+  //get previous tweets
   const tweetLoader = () => {
     $.get('/tweets', (tweet) => {
-      renderTweets(tweet)
+      renderTweets(tweet);
     })
   }
 
-  tweetLoader()
+  tweetLoader();
 
 });

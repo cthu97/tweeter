@@ -9,8 +9,6 @@ $(document).ready(function () {
     //counts the characters and decreases char limits accordingly
     $counter.text(count - inputLength);
 
-    
-    
     //changes colour to red if input goes over char limit
     if (inputLength > 140) {
       $counter.css('color', 'red');

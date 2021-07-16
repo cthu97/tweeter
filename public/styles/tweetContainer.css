@@ -11,14 +11,12 @@
 
 .tweets:hover{
   box-shadow:4px 4px #545149; 
-
 }
 
 .tweets div {
   display:flex;
   align-self: flex-start;
  justify-content: space-between; 
-
  flex-wrap:wrap;
   
 }
