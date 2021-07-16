@@ -10,8 +10,8 @@ Tweeter is a simple, single-page Twitter clone.
 
   1.  Fork and clone this repository.
   2.  Run ```npm install``` to install dev dependencies
-  3.  Start the server at [http://localhost:8080/] by using ```npm run local```.
-  4.  Go to [http://localhost:8080/] in your browser.
+  3.  Start the server at <http://localhost:8080/> by using ```npm run local```.
+  4.  Go to <http://localhost:8080/> in your browser.
   5.  Start tweeting!
 
 ## Dependencies
